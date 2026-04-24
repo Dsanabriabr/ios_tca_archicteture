@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "EFC1B832-12AB-4BA1-940B-1F450D6803D0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:tca architecture.xcodeproj",
+        "identifier" : "E04836EC2F9BE91900CE4ED4",
+        "name" : "tca architectureTests"
+      }
+    }
+  ],
+  "version" : 1
+}
