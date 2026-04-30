@@ -26,8 +26,8 @@ struct AppView: View {
 @Reducer
 struct AppFeature {
   struct State: Equatable {
-    var tab1 = CounterFeature.State()
-    var tab2 = CounterFeature.State()
+      var tab1 = CounterFeature.State(id: UUID())
+      var tab2 = CounterFeature.State(id: UUID())
   }
   enum Action {
     case tab1(CounterFeature.Action)
