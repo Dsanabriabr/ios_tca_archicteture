@@ -12,7 +12,8 @@ import Clocks
 @Reducer
 struct CounterFeature {
     @ObservableState
-    struct State: Equatable {
+    struct State: Equatable, Identifiable {
+        let id: UUID
         var count = 0
         var fact: String?
         var isLoading = false
@@ -28,7 +29,7 @@ struct CounterFeature {
         case timerTick
     }
     
-    enum CancelID { case timer }
+    enum CancelID: Hashable { case timer(UUID) }
     @Dependency(\.continuousClock) var clock
     @Dependency(\.numberFactClient) var numberFactClient
     
@@ -68,9 +69,9 @@ struct CounterFeature {
                           await send(.timerTick)
                       }
                   }
-                  .cancellable(id: CancelID.timer)
+                  .cancellable(id: CancelID.timer(state.id))
                 } else {
-                  return .cancel(id: CancelID.timer)
+                  return .cancel(id: CancelID.timer(state.id))
                 }
             case .timerTick:
                     state.count += 1
@@ -133,7 +134,7 @@ struct CounterView: View {
     }
     
 #Preview {
-        CounterView(store: Store(initialState: CounterFeature.State()) {
+    CounterView(store: Store(initialState: CounterFeature.State(id: UUID())) {
             CounterFeature()
         }
     )
