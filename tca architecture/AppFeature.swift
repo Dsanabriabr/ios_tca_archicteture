@@ -13,11 +13,15 @@ struct AppView: View {
     
     var body: some View {
         TabView {
-            CounterView(store: store.scope(state: \.tab1, action: \.tab1)).tabItem {
-                Text("Counter 1")
-            }
-            CounterView(store: store.scope(state: \.tab2, action: \.tab2)).tabItem {
-                Text("Counter 2")
+            ForEach(
+                store.scope(state: \.counters, action: \.counters)
+            ) { itemStore in
+                CounterView(store: itemStore).tabItem {
+                    Label(
+                            "Counter \(itemStore.id.uuidString.prefix(2))",
+                            systemImage: "clock"
+                        )
+                }
             }
         }
     }
@@ -25,26 +29,26 @@ struct AppView: View {
 
 @Reducer
 struct AppFeature {
-  struct State: Equatable {
-    var tab1 = CounterFeature.State()
-    var tab2 = CounterFeature.State()
-  }
-  enum Action {
-    case tab1(CounterFeature.Action)
-    case tab2(CounterFeature.Action)
-  }
-  var body: some ReducerOf<Self> {
-    Scope(state: \.tab1, action: \.tab1) {
-      CounterFeature()
+    @ObservableState
+    struct State: Equatable {
+        var counters: IdentifiedArrayOf<CounterFeature.State> = [
+            .init(id: UUID()),
+            .init(id: UUID()),
+            .init(id: UUID()),
+            .init(id: UUID())
+        ]
     }
-    Scope(state: \.tab2, action: \.tab2) {
-      CounterFeature()
+    enum Action {
+        case counters(IdentifiedActionOf<CounterFeature>)
     }
-    Reduce { state, action in
-      // Core logic of the app feature
-      return .none
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            .none
+        }
+        .forEach(\.counters, action: \.counters) {
+            CounterFeature()
+        }
     }
-  }
 }
 #Preview {
   AppView(
