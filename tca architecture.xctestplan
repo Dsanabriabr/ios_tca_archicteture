@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "64BA4EF4-010F-4876-A297-9D6E317AC390",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:tca architecture.xcodeproj",
+      "identifier" : "E0D266A72F968CA400A54CC6",
+      "name" : "tca architecture"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:tca architecture.xcodeproj",
+        "identifier" : "E08092CC2F9BF0150017AD8D",
+        "name" : "tca architectureTests"
+      }
+    }
+  ],
+  "version" : 1
+}
