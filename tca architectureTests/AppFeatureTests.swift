@@ -6,6 +6,7 @@
 //
 
 import ComposableArchitecture
+import Foundation
 import Testing
 
 @testable import tca_architecture
@@ -13,11 +14,23 @@ import Testing
 @MainActor
 struct AppFeatureTests {
     @Test func incrementInFirstTab() async throws {
-        let store = TestStore(initialState: AppFeature.State()) {
+        let featureArray: IdentifiedArrayOf<CounterFeature.State> = [
+            .init(id: UUID()),
+            .init(id: UUID()),
+            .init(id: UUID()),
+            .init(id: UUID())
+        ]
+        
+        let store = TestStore(initialState: AppFeature.State(
+            counters: featureArray
+        )) {
             AppFeature()
         }
-        await store.send(\.tab1.incrementButtonTapped) {
-            $0.tab1.count = 1
+        for counter in featureArray {
+            await store.send(.counters(.element(id: counter.id, action: .incrementButtonTapped))
+            ) {
+                $0.counters[id: counter.id]!.count = 1
+            }
         }
     }
 }
