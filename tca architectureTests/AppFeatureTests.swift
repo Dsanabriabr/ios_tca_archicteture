@@ -13,7 +13,7 @@ import Testing
 
 @MainActor
 struct AppFeatureTests {
-    @Test func incrementInFirstTab() async throws {
+    @Test func incrementInEachTab() async throws {
         let featureArray: IdentifiedArrayOf<CounterFeature.State> = [
             .init(id: UUID()),
             .init(id: UUID()),
