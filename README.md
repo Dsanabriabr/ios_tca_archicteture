@@ -32,7 +32,25 @@ Official TCA Swift Package Manager (SPM):
 
 https://github.com/pointfreeco/swift-composable-architecture
 
-## Objective
+## About The Composable Architecture (TCA)
+
+The Composable Architecture is a library for building applications in a consistent and predictable way, emphasizing:
+
+- Centralized and explicit state management
+- Clear action-driven data flow
+- Isolation and composition of features
+- High testability of business logic
+
+Each feature is composed of:
+
+- **State**: Source of truth for UI and logic
+- **Action**: All possible user and system events
+- **Reducer**: Pure function that handles state transitions
+- **Effects**: Side effects and asynchronous operations
+
+---
+
+## Scope of This Implementation
 
 The project walks through the core building blocks of TCA by implementing a **Counter feature** enhanced with **Number Fact requests**, following each step of the official learning path:
 
