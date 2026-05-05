@@ -1,6 +1,10 @@
 # TCA Chapter 1 – Essentials Study - Counter Facts App
 
-### iOS 26 , Swift 5 , SPM swift-composale-architecture 1.25.5
+<a href="https://github.com/pointfreeco/swift-composable-architecture">
+  <img src="https://img.shields.io/badge/-Swift_Composable_Architecture_1.25.5-000000?logo=github&logoColor=white&logoWidth=30"/>
+</a>
+
+<img src="https://img.shields.io/badge/-Swift_5-AAAAAA?logo=swift&logoColor=orange&logoWidth=30"/><img src="https://img.shields.io/badge/-iOS_26-488abb?logo=apple&logoColor=white&logoWidth=30"/>
 
 ## Objective
 
