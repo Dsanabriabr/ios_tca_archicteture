@@ -169,6 +169,12 @@ To further improve scalability and reduce manual wiring:
 
 ---
 
+## Testing
+
+<html>
+<img src="images/XCode_Tests_Terminal.png" alt="Tests"> 
+</html>
+
 ## Goals of This Study
 
 - Master TCA fundamentals
