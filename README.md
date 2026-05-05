@@ -80,14 +80,16 @@ CounterFeature
 │   ├── id: UUID
 │   ├── count: Int
 │   ├── fact: String?
+│   ├── isLoading: Bool
 │   └── isTimerRunning: Bool
 │
 ├── Action
 │   ├── decrementButtonTapped
 │   ├── incrementButtonTapped
 │   ├── factButtonTapped
-│   ├── factResponse(String)
-│   └── toggleTimerButtonTapped
+│   ├── factClientResponse(String)
+│   ├── toggleTimerButtonTapped
+│   └── timerTick
 │
 └── Reducer
     ├── State mutations
@@ -98,7 +100,7 @@ CounterFeature
 CounterFeature
 └── Dependencies
     ├── numberFactClient
-    │   └── fetch(count: Int) async throws -> String
+    │   └── fact(Int) async throws -> String
     └── continuousClock (for timer effects)
 ```
 
@@ -180,8 +182,8 @@ This is a personal study repository, but feel free to explore, fork, or suggest 
 
 ## References
 
-- The Composable Architecture – Point-Free￼
-- Official TCA Tutorials￼
+- TCA Repository: https://github.com/pointfreeco/swift-composable-architecture
+- Official Tutorial: https://swiftpackageindex.com/pointfreeco/swift-composable-architecture/main/tutorials/meetcomposablearchitecture
 
 ---
 
