@@ -74,7 +74,7 @@ Each stage evolves the architecture, reinforcing key concepts such as state mana
 ```swift
 tca_architectureApp (Root)
 └── AppFeature (View)
-    └── ForEachStore (IdentifiedArrayOf)
+    └── ForEach (IdentifiedArrayOf)
         └── CounterFeature (Scoped by ID)
 ```
 ### 2. CounterFeature Domain
