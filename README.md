@@ -18,7 +18,7 @@ This repository serves as:
 
 ## Extra Insight
 
-> Action routing and effect cancellation are automatically scoped by identity through `IdentifiedArrayOf` and `ForEachStore`, removing the need for manual ID management.
+> Action routing and effect cancellation are automatically scoped by identity through `IdentifiedArrayOf` and `ForEach`, removing the need for manual ID management.
 
 | Increment | Start Timer | Stop Timer | FactTapped |
 |--------|------|--------|--------|
